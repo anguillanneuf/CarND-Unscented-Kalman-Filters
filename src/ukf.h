@@ -80,6 +80,24 @@ public:
     ///* (Tianzi) the measurement noise for laser
     MatrixXd R_laser_;
 
+    ///* (Tianzi) sigma points
+    MatrixXd Zsig_;
+    MatrixXd Xsig_;
+
+    ///* (Tianzi) mean and covariances of Zsig_
+    VectorXd z_pred;
+    MatrixXd S;
+
+    ///* (Tianzi) measurement noise
+    MatrixXd R_radar_;
+
+    ///* (Tianzi) augmented state vector and state covariance matrix
+    VectorXd x_aug;
+    MatrixXd P_aug;
+
+    ///* (Tianzi) process noise
+    MatrixXd Q_;
+
 
     /**
      * Constructor
