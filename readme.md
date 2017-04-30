@@ -32,6 +32,9 @@ Here are my results:
 |BOTH|0.0704465|0.0810925|0.33549|0.232682|
 
 - The NIS of radar measurements must be between 0.35 and 7.81 in at least 80% of all radar update steps.
+
+The script for these plots are in `.plot_gen.ipynb`.  
+
 ![nis](./output/nis.png)  
 
 ![est_meas_gt](./output/est_meas_gt.png)
