@@ -13,10 +13,10 @@ using std::vector;
  */
 UKF::UKF() {
     // if this is false, laser measurements will be ignored (except during init)
-    use_laser_ = true;
+    use_laser_ = true;//false;
 
     // if this is false, radar measurements will be ignored (except during init)
-    use_radar_ = true;
+    use_radar_ = true;//false;
 
     // initial state vector
     x_ = VectorXd(5);
@@ -174,15 +174,17 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
      *  Update
      ****************************************************************************/
 
-    if (meas_package.sensor_type_ == MeasurementPackage::RADAR) {
-        // Radar update
-        if (use_radar_ == true)
-            UpdateRadar(meas_package);
+    if (!(x_(0) == 0 && x_(1) == 0)){
+        if (meas_package.sensor_type_ == MeasurementPackage::RADAR) {
+            // Radar update
+            if (use_radar_ == true)
+                UpdateRadar(meas_package);
 
-    } else {
-        // Laser update
-        if (use_laser_ == true)
-            UpdateLidar(meas_package);
+        } else {
+            // Laser update
+            if (use_laser_ == true)
+                UpdateLidar(meas_package);
+        }
     }
 
     // print state and covariance
